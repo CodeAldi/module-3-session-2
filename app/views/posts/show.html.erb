@@ -1,1 +1,12 @@
-<h1><%= @post.title %></h1>
+<div class="jumbotron">
+  <h1 class="display-4"><%= @post.title %></h1>
+  <p class="lead">Author : <%= @post.name %> </p>
+  <p class="lead">Genre : <%= @post.genre %> </p>
+  <p class="lead">Created at : <%= @post.created_at %> </p>
+  <hr class="my-4">
+  <p>Content :</p>
+  <p><%= @post.content %></p>
+  <%= link_to 'Edit this content',edit_post_path(@post), :class => "btn btn-primary" %>
+  <%= link_to "Delete this post", @post , :method => :delete ,:class => "btn btn-primary" %>
+  <%= link_to 'back' ,posts_path, :class => "btn btn-primary" %>
+</div>

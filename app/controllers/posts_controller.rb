@@ -8,12 +8,13 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    puts "show dipanggil"
   end
 
   # GET /posts/new
   def new
     @post = Post.new
-    redirect_to posts_url
+    
   end
 
   # GET /posts/1/edit
@@ -50,7 +51,9 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post.destroy
+    puts "destroy dipanggil"
+    postnya = Post.find(params[:id])
+    postnya.destroy
 
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
@@ -66,6 +69,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:name, :title, :content)
+      params.require(:post).permit(:name, :title, :content, :genre)
     end
 end

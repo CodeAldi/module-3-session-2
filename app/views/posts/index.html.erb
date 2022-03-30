@@ -36,20 +36,23 @@
   <table class="table table-striped table-bordered">
     <thead class="thead-dark">
       <tr>
-        <th scope="col" class="text-center">id</th>
         <th scope="col" class="text-center">Author</th>
         <th scope="col" class="text-center">Title</th>
+        <th scope="col" class="text-center">Genre</th>
         <th scope="col" colspan="3" class="text-center">action</th>
       </tr>
     </thead>
     <tbody>
   <% @posts.each do |post| %>
-    <%= render post %>
+    <tr>
+    <td><%= post.name %></td>
+    <td><%= post.title %></td>
+    <td><%= post.genre %></td>
+    <td><%= link_to "Show this post", post %></td>
+    <td><%= link_to "Edit this post", edit_post_path(post) %></td>
+    <td><%= link_to "Delete this post", post , method: "delete" %></td>
+  </tr>
   <% end %>
     </tbody>
   </table>
 </div>
-
-
-
-
